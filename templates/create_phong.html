@@ -15,7 +15,7 @@
     table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
-      width: 100%;
+      width: 70%;
     }
     
     td, th {
@@ -30,9 +30,7 @@
 </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <!--<h2>{% block title %} Danh sách khách hàng {% endblock %}</h2>-->
-        
+    <div class="container mt-3">      
     <h1>{% block title %} Them Loai Phong {% endblock %}</h1>
     <table style="width:100%" class="table table-bordered">
         <thead>
@@ -41,46 +39,98 @@
                 <th>Tên</th>
                 <th>Diện tích</th>
                 <th>Số khách tối đa</th>
-                <th>Thông tin giường nằm</th>
+                <th>Kích thước giường</th>
+                <th>Số lượng giường</th>
                 <th>Mô tả khác</th>
-                <th>Vật tư có trong phòng</th>
-                <th>Điểm</th>
-                <th>Loại</th>
+                <th>Mã loại vật tư</th>
+                <th>Mã loại phòng</th>
+                <th>Số lượng vật tư</th>
             </tr>
             </thead>
-    <form method="post">
+            <tbody>
+                <div class = "phong">
+
+    <td><form method="post">
         <p>
-            <label for="id">ID</label>
+            <label for="id"></label>
             <input type="number" name="id"
-                   placeholder="Ma">
+                   placeholder="Ma" >
             </input>
         </p>
-
+    </td>
+    <td>
         <p>
-            <label for="ten">Ten</label>
+            <label for="ten"></label>
             <input type="text" name="ten"
                    placeholder="Ten">
             </input>
         </p>
-
+    </td>
+    <td>
         <p>
-            <label for="dien_tich">Dien tich</label>
+            <label for="dien_tich"></label>
             <input type="number" name="dien_tich"
                    placeholder="Dien tich">
             </input>
         </p>
+    </td>
+    <td>
         <p>
-            <label for="so">so khach</label>
+            <label for="so"></label>
             <input type="number" name="so"
-                   placeholder="so">
+                   placeholder="Số khách">
             </input>
         </p>
+    </td>
+    <td>
         <p>
-            <label for="khac">Mo ta khac</label>
-            <input type="text" name="khac"
-                   placeholder="Mo ta">
+            <label for="khac"></label>
+            <input type="text" name="kt_giuong"
+                   placeholder="Kích thước giường">
             </input>
         </p>
+    </td>
+    <td>
+        <p>
+            <label for="khac"></label>
+            <input type="text" name="sl_giuong"
+                   placeholder="Số lượng giường">
+            </input>
+        </p>
+    </td>
+    <td>
+        <p>
+            <label for="khac"></label>
+            <input type="text" name="mo_ta"
+                    placeholder="Mô tả khác">
+            </input>
+        </p>
+    </td>
+    <td>
+        <p>
+            <label for="khac"></label>
+            <input type="text" name="id_vat_tu"
+                    placeholder="Mã">
+            </input>
+        </p>
+    </td>
+    <td>
+        <p>
+            <label for="khac"></label>
+            <input type="text" name="ma_phong"
+                   placeholder="Mã phòng">
+            </input>
+        </p>
+    </td>
+    <td>
+        <p>
+            <label for="khac"></label>
+            <input type="text" name="sl_vattu"
+                   placeholder="Số lượng">
+            </input>
+        </p>
+    </td>
+            
         <p>
             <button type="submit">Submit</button>
         </p>
