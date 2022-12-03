@@ -106,28 +106,33 @@ def Kh_find():
 @app.route('/them_phong/', methods=('GET', 'POST'))
 def create_phong():
     if request.method == 'POST':
-        ma_loai_phong = int(request.form['id'])
+        #ma_loai_phong = int(request.form['id'])
         ten_loai_phong = request.form['ten']
-        dien_tich = int(request.form['dien_tich'])
+        dien_tich = float(request.form['dien_tich'])
         so_khach = int(request.form['so'])
         kt_giuong = request.form['kt_giuong']
         sl_giuong = int(request.form['sl_giuong'])
         mo_ta_khac = request.form['mo_ta']
-        id_vat_tu = int(request.form['id_vat_tu'])
-        id_phong = int(request.form['ma_phong'])
+        id_vat_tu = request.form['id_vat_tu']
+        #id_phong = int(request.form['ma_phong'])
         sl_vattu = int(request.form['sl_vattu'])
 
         conn = data()
         cur = conn.cursor()
-        cur.execute('INSERT INTO loai_phong (ma_loai_phong, ten_loai_phong, dien_tich, so_khach, mo_ta_khac)'
-                    'VALUES (%s, %s, %s, %s, %s);', 
-                    (ma_loai_phong, ten_loai_phong, dien_tich, so_khach, mo_ta_khac))
-        cur.execute('INSERT INTO thong_tin_giuong(ma_loai_phong, kt_giuong, sl_giuong)'
+        cur.execute('SELECT MAX(ma_loai_phong) FROM loai_phong;')
+        max_ma = cur.fetchall()
+        ma_max = int(max_ma[0][0]) +1
+        cur.execute('INSERT INTO loai_phong (ma_loai_phong,ten_loai_phong, dien_tich, so_khach, mo_ta_khac)'
+                    'VALUES ( %s ,%s, %s, %s, %s);', 
+                    ( ma_max,ten_loai_phong, dien_tich, so_khach, mo_ta_khac))
+        cur.execute('SELECT MAX(ma_loai_phong) FROM loai_phong;')
+        max_ma = cur.fetchall()
+        cur.execute('INSERT INTO thong_tin_giuong(ma_loai_phong, kich_thuoc, so_luong)'
                     'VALUES (%s, %s, %s);',
-                    (ma_loai_phong, kt_giuong, sl_giuong))
+                    (ma_max, kt_giuong, sl_giuong))
         cur.execute('INSERT INTO loai_vat_tu_trong_phong(ma_loai_vat_tu, ma_loai_phong, so_luong)'
                     'VALUES (%s, %s, %s);',
-                    ( id_vat_tu,ma_loai_phong, sl_vattu))
+                    ( id_vat_tu,ma_max, sl_vattu))
         conn.commit()
         cur.close()
         conn.close()
