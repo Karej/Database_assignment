@@ -21,6 +21,7 @@
         box-sizing: border-box;
       }
     table {
+      border: 3px solid black;
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
@@ -30,43 +31,42 @@
       border: 3px solid black;
       text-align: left;
       padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
+    }    
+    tr {
+      background-color: #FFFFFF;
     }
 </style>
 </head>
-<body background="https://www.treehugger.com/thmb/yICWqsFaKoau2h-wzqGBsid4bKc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/scenic-view-of-silhouette-mountains-against-sky-during-sunset-1325186919-166516c836d644dd953f34a3b7fe9c7f.jpg" >
+<body border ="3px solid black" background="https://chungcu365.com/uploads/22/a-119/20191211160802-763a.jpg" >
 <div class="container mt-3">
-    <h2 style="color:white;">{% block title %} Danh sách khách hàng {% endblock %}</h2>
+    <h2 style="color:black;">{% block title %} Danh sách khách hàng {% endblock %}</h2>
     <table  border="5" bordercolor="#FFFFFF" >
         <thead>
         <tr>
-            <th style="color:white;">Xem đơn đặt</th>
-            <th style="color:white;">Mã khách hàng</th>
-            <th style="color:white;">Họ và tên</th>
-            <th style="color:white;">CMND</th>
-            <th style="color:white;">Điện thoaị</th>
-            <th style="color:white;">Email</th>
-            <th style="color:white;">Username</th>
-            <th style="color:white;">Điểm</th>
-            <th style="color:white;">Loại</th>
+            <th style="color:black;">Xem đơn đặt</th>
+            <th style="color:black;">Mã khách hàng</th>
+            <th style="color:black;">Họ và tên</th>
+            <th style="color:black;">CMND</th>
+            <th style="color:black;">Điện thoaị</th>
+            <th style="color:black;">Email</th>
+            <th style="color:black;">Username</th>
+            <th style="color:black;">Điểm</th>
+            <th style="color:black;">Loại</th>
         </tr>
         </thead>
         <tbody id="myTable">        
         {% for kh in khach_hang %}
             <div class='kh'>
                 <tr>
-                    <td style="color:white;"><a href="{{ url_for('dd',ma = kh[0] ) }}">View more</a></td>
-                    <td style="color:white;">{{ kh[0] }}</td>
-                    <td style="color:white;">{{ kh[1] }}</td>
-                    <td style="color:white;">{{ kh[2] }}</td>
-                    <td style="color:white;">{{ kh[3] }}</td>
-                    <td style="color:white;">{{ kh[4] }}</td>
-                    <td style="color:white;">{{ kh[5] }}</td>
-                    <td style="color:white;">{{ kh[7]}}</td>
-                    <td style="color:white;">{{ kh[8] }}</td>
+                    <td style="color:black;"><a href="{{ url_for('dd',ma = kh[0] ) }}">View more</a></td>
+                    <td style="color:black;">{{ kh[0] }}</td>
+                    <td style="color:black;">{{ kh[1] }}</td>
+                    <td style="color:black;">{{ kh[2] }}</td>
+                    <td style="color:black;">{{ kh[3] }}</td>
+                    <td style="color:black;">{{ kh[4] }}</td>
+                    <td style="color:black;">{{ kh[5] }}</td>
+                    <td style="color:black;">{{ kh[7]}}</td>
+                    <td style="color:black;">{{ kh[8] }}</td>
                 </tr>
                 
             </div>
