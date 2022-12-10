@@ -20,44 +20,44 @@
     }
     
     td, th {
-      border: 1px solid black;
+      border: 3px solid black;
       text-align: left;
       padding: 8px;
     }
     
-    tr:nth-child(even) {
-      background-color: #dddddd;
+    tr {
+      background-color: #FFFFFF;
     }
 </style>
 </head>
-<body background="https://www.treehugger.com/thmb/yICWqsFaKoau2h-wzqGBsid4bKc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/scenic-view-of-silhouette-mountains-against-sky-during-sunset-1325186919-166516c836d644dd953f34a3b7fe9c7f.jpg">
+<body background="https://chungcu365.com/uploads/22/a-119/20191211160802-763a.jpg">
 <div class="container mt-3">
-    <h2>{% block title %} Đơn đặt phòng {% endblock %}</h2>
-    <table style="width:100%" class="table table-bordered">
+    <h2>{% block title %} Đơn đặt phòng của khách hàng bạn đã chọn {% endblock %}</h2>
+    <table border="5" bordercolor="#FFFFFF">
         <thead>
         <tr>
-            <th>Mã đặt phòng</th>
-            <th>Ngày giờ đặt</th>
-            <th>Số khách</th>
-            <th>Ngày nhận phòng</th>
-            <th>Ngày trả phòng</th>
-            <th>Tình trạng</th>
-            <th>Tổng tiền</th>
-            <th>Mã khách hàng</th>
+            <th style="color:black;">Mã đặt phòng</th>
+            <th style="color:black;">Ngày giờ đặt</th>
+            <th style="color:black;">Số khách</th>
+            <th style="color:black;">Ngày nhận phòng</th>
+            <th style="color:black;">Ngày trả phòng</th>
+            <th style="color:black;">Tình trạng</th>
+            <th style="color:black;">Tổng tiền</th>
+            <th style="color:black;">Mã khách hàng</th>
         </tr>
         </thead>
         <tbody id="myTable">        
         {% for kh in don_dat %}
             <div class='kh'>
                 <tr>
-                    <td>{{ kh[0] }}</td>
-                    <td>{{ kh[1] }}</td>
-                    <td>{{ kh[2] }}</td>
-                    <td>{{ kh[3] }}</td>
-                    <td>{{ kh[4] }}</td>
-                    <td>{{ kh[5] }}</td>
-                    <td>{{ kh[6]}}</td>
-                    <td>{{ kh[7] }}</td>
+                    <td style="color:black;">{{ kh[0] }}</td>
+                    <td style="color:black;">{{ kh[1] }}</td>
+                    <td style="color:black;">{{ kh[2] }}</td>
+                    <td style="color:black;">{{ kh[3] }}</td>
+                    <td style="color:black;">{{ kh[4] }}</td>
+                    <td style="color:black;">{{ kh[5] }}</td>
+                    <td style="color:black;">{{ kh[6]}}</td>
+                    <td style="color:black;">{{ kh[7] }}</td>
                 </tr>
                 
             </div>

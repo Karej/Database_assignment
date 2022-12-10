@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+<style>
+
+</style>
+</head>
+<body background="https://chungcu365.com/uploads/22/a-119/20191211160802-763a.jpg
+" >
+    <!--<img src="https://chungcu365.com/uploads/22/a-119/20191211160802-763a.jpg" alt="Snow" style="width:100%;">-->
+    <h1 style="font-size:40px;" style="color:white;" style="text-align:center;" >Nhập mã chi nhánh và năm bạn muốn thống kê lượng khách </h1>
+    <form method="post">
+        <p>
+            <label for="chi_nhanh" style="text-align:left;"></label>
+            <!--<input type="text" name="username"
+                   placeholder="Username">-->
+            <input class="form-control" name="chi_nhanh" type="text" placeholder="VD: CN1, CN2,...">
+            </input>
+        </p>
+        <p>
+            <label for="year" style="text-align:left;"></label>
+            <!--<input type="text" name="username"
+                   placeholder="Username">-->
+            <input class="form-control" name="year" type="number" placeholder="VD: 2022, 2021,...">
+            </input>
+        </p>
+        <p>
+            <button type="submit">Nhấn vào đây để bắt đầu</button>
+        </p>
+    </form>
+</body>
+{% endblock %}

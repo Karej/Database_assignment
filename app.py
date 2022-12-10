@@ -86,22 +86,26 @@ def Kh_find():
         return render_template('khach_hang.html', khach_hang=khach_hang)
     return render_template('tim_khach_hang.html')
 
-#@app.route('/infor/')
-#def infor():
-    #show the information of the user
-    
-    
-    
-    
-    '''if request.method == 'POST':
+#call function thong ke luot khach
+@app.route('/thong_ke/',methods=('GET','POST'))
+def thong_ke():
+    if request.method == 'POST':
+        chi_nhanh = request.form['chi_nhanh']
+        year = int(request.form['year'])
+        #username = request.form['username']
+        #khach_hang = Kh_1(username)
         conn = data()
         cur = conn.cursor()
-        cur.execute('SELECT * FROM khach_hang WHERE username = %s;', (request.form['username'],))
-        khach_hang = cur.fetchall()
+        #ma = dd
+        cur.execute('SELECT thongkeluotkhach(%s,%s);',(chi_nhanh,year,))
+        thong_ke = cur.fetchall()
         cur.close()
         conn.close()
-        return render_template('tim_khach_hang.html', khach_hang=khach_hang)
-    return render_template('tim_khach_hang.html')'''
+        
+        #dd(khach_hang[0][0])
+        return render_template('hien_thi_thong_ke.html', thong_ke=thong_ke, chi_nhanh=chi_nhanh, year=year)
+    return render_template('thong_ke.html')
+    
     
 @app.route('/them_phong/', methods=('GET', 'POST'))
 def create_phong():
