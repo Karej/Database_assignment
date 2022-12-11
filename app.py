@@ -142,3 +142,7 @@ def create_phong():
         conn.close()
         #return redirect(url_for('index'))
     return render_template('create_phong.html')
+
+@app.route('/about_us/')
+def about_us():
+    return render_template('about_us.html')
