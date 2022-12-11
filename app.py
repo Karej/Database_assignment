@@ -11,23 +11,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return render_template('index.html', utc_dt=datetime.datetime.utcnow())
+    return render_template('index.html')
 
-
-#@app.route('/data/')
 def data():
-   conn = psycopg2.connect("postgresql://postgres:phucbao12340@localhost:5432/postgres")
+   conn = psycopg2.connect("postgresql://smanager:phucbao12340@localhost:5432/postgres")
    return conn
-
-'''@app.route('/table/')
-def chi_nhanh():
-    conn = data()
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM books;')
-    books = cur.fetchall()
-    cur.close()
-    conn.close()
-    return render_template('index.html', books=books)'''
 
 @app.route('/khach_hang/')
 def Kh():
@@ -35,7 +23,6 @@ def Kh():
     cur = conn.cursor()
     cur.execute('SELECT * FROM khach_hang;')
     khach_hang = cur.fetchall()
-    #dd_1( khach_hang[0][0])
     cur.close()
     conn.close()
     return render_template('khach_hang.html', khach_hang=khach_hang)
@@ -60,9 +47,7 @@ def dd(ma):
     conn.close()
     return render_template('display_don.html', don_dat=don_dat)
 
-#@app.route('/don_dat/', methods=['GET', 'POST'])
-#def tim_don():
-    #return render_template('display_don.html', don_dat=don_dat)
+
 @app.route('/don/')
 def dd_1():
     conn = data()
@@ -82,7 +67,6 @@ def Kh_find():
     if request.method == 'POST':
         username = request.form['username']
         khach_hang = Kh_1(username)
-        #dd(khach_hang[0][0])
         return render_template('khach_hang.html', khach_hang=khach_hang)
     return render_template('tim_khach_hang.html')
 
@@ -92,17 +76,12 @@ def thong_ke():
     if request.method == 'POST':
         chi_nhanh = request.form['chi_nhanh']
         year = int(request.form['year'])
-        #username = request.form['username']
-        #khach_hang = Kh_1(username)
         conn = data()
         cur = conn.cursor()
-        #ma = dd
         cur.execute('SELECT thongkeluotkhach(%s,%s);',(chi_nhanh,year,))
         thong_ke = cur.fetchall()
         cur.close()
         conn.close()
-        
-        #dd(khach_hang[0][0])
         return render_template('hien_thi_thong_ke.html', thong_ke=thong_ke, chi_nhanh=chi_nhanh, year=year)
     return render_template('thong_ke.html')
     
@@ -110,7 +89,6 @@ def thong_ke():
 @app.route('/them_phong/', methods=('GET', 'POST'))
 def create_phong():
     if request.method == 'POST':
-        #ma_loai_phong = int(request.form['id'])
         ten_loai_phong = request.form['ten']
         dien_tich = float(request.form['dien_tich'])
         so_khach = int(request.form['so'])
@@ -118,7 +96,6 @@ def create_phong():
         sl_giuong = int(request.form['sl_giuong'])
         mo_ta_khac = request.form['mo_ta']
         id_vat_tu = request.form['id_vat_tu']
-        #id_phong = int(request.form['ma_phong'])
         sl_vattu = int(request.form['sl_vattu'])
 
         conn = data()
@@ -140,7 +117,6 @@ def create_phong():
         conn.commit()
         cur.close()
         conn.close()
-        #return redirect(url_for('index'))
     return render_template('create_phong.html')
 
 @app.route('/about_us/')
